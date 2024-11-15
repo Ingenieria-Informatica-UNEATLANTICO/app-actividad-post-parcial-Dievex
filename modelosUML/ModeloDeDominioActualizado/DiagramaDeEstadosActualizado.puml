@@ -2,7 +2,7 @@
 
     state "Sistema de Transporte" as Sistema {
         
-        state "Gestión de Servicios" as GestionServicios {
+        state "Servicio" as Servicio {
             [*] --> Activo : Crear Servicio
             
             Activo --> Suspendido : Incidencia Grave
@@ -12,12 +12,15 @@
             Activo --> EnMantenimiento : Mantenimiento Programado
             EnMantenimiento --> Activo : Finalizar Mantenimiento
             
-            Activo --> Modificación : Cambios Necesarios
-            Modificación --> Activo : Implementar Cambios
-            
             Activo --> Cerrado : Fin de Temporada/Servicio
             Cerrado --> [*] : Discontinuar Servicio
             
+            note right of Activo
+                Estado principal de operación
+                - Monitoreo continuo
+                - Gestión de incidencias
+                - Control de flota
+            end note
         }
         
         state "Control de Flota" as Flota {
@@ -40,7 +43,9 @@
             AlertaGrave --> Monitorizando : Normalización
         }
 
-        
+        Servicio --> Flota : "gestiona"
+        Servicio --> Monitoreo : "controla"
+
     }
 
 @enduml
