@@ -1,0 +1,46 @@
+@startuml DiagramaDeEstadosActualizado
+
+    state "Sistema de Transporte" as Sistema {
+        
+        state "Gestión de Servicios" as GestionServicios {
+            [*] --> Activo : Crear Servicio
+            
+            Activo --> Suspendido : Incidencia Grave
+            Suspendido --> EnMantenimiento : Requiere Reparación
+            Suspendido --> Activo : Resolución Rápida
+            
+            Activo --> EnMantenimiento : Mantenimiento Programado
+            EnMantenimiento --> Activo : Finalizar Mantenimiento
+            
+            Activo --> Modificación : Cambios Necesarios
+            Modificación --> Activo : Implementar Cambios
+            
+            Activo --> Cerrado : Fin de Temporada/Servicio
+            Cerrado --> [*] : Discontinuar Servicio
+            
+        }
+        
+        state "Control de Flota" as Flota {
+            [*] --> DisponibleTotal
+            
+            DisponibleTotal --> DisponibleParcial : Vehículos en Mantenimiento
+            DisponibleParcial --> DisponibleTotal : Flota Restaurada
+            
+            DisponibleParcial --> FlotaCrítica : Múltiples Averías
+            FlotaCrítica --> DisponibleParcial : Reparaciones Completadas
+        }
+        
+        state "Monitorización" as Monitoreo {
+            [*] --> Monitorizando
+            
+            Monitorizando --> AlertaLeve : Incidencia Menor
+            AlertaLeve --> Monitorizando : Resolución
+            
+            Monitorizando --> AlertaGrave : Incidencia Mayor
+            AlertaGrave --> Monitorizando : Normalización
+        }
+
+        
+    }
+
+@enduml

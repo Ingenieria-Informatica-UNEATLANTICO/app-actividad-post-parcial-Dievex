@@ -2,6 +2,10 @@
 
     hide circle
     hide empty members
+
+    class "Gobierno:Estado" {
+        pais = "España"
+    }
     
     class "servicio_1:Servicio" {
         nombre = "Línea 1 Metro"
@@ -42,12 +46,13 @@
         fecha = "2024-03-15"
     }
     class "tarifa_1:Tarifa" {
-        monto = "1.50€"
+        precio = "1.50€"
     }
     class "abono_1:Abono" {
         tipo = "Mensual"
     }
 
+    "Gobierno:Estado" --> "servicio_1:Servicio" : ofrece
     "servicio_1:Servicio" --> "ruta_101:Ruta" : ofrece
     "servicio_1:Servicio" --> "flota_1:Flota" : gestiona
     "servicio_1:Servicio" --> "monitor_1:Sistema_de_Monitoreo" : controla
