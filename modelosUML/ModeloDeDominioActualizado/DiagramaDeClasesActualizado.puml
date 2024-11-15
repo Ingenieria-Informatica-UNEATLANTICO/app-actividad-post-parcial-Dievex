@@ -1,11 +1,11 @@
-@startuml DiagramaDeClasesLegibleSinTicket
+@startuml DiagramaDEClasesActualizado
 
 hide circle
 hide empty members
 
 package "Sistema de Transporte Público" {
  
-    Estado --> Servicio: "ofrece"
+    Estado --> Servicio:"ofrece"
     Servicio --> Ruta : "ofrece"
     Servicio --> Flota : "gestiona"
     Servicio --> Sistema_de_Monitoreo : "controla"

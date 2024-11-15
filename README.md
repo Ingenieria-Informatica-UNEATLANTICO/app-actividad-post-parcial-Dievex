@@ -14,8 +14,8 @@
 
 |Ejercicio|Codigo|Diagrama|
 |-|-|:-:|
-|1. Diagrama de clases| [Código](modelosUML/ModeloDeDominioActualizado/DiagramaDeClasesActualizado.puml) |![]()
-|2. Diagrama de objetos|[Código](modelosUML/ModeloDeDominioOriginal/DiagramaDeObjetosActualizado.puml)|![]()
-|3. Diagrama Estados|[Código](modelosUML/ModeloDeDominioOriginal/DiagramaDeEstadosActualizado.puml)|![]()
+|1. Diagrama de clases| [Código](modelosUML/ModeloDeDominioActualizado/DiagramaDeClasesActualizado.puml) |![](images/DiagramaDEClasesActualizado.svg)
+|2. Diagrama de objetos|[Código](modelosUML/ModeloDeDominioOriginal/DiagramaDeObjetosOriginal.puml)|![](images/DiagramaDeObjetosActualizado.svg)
+|3. Diagrama Estados|[Código](modelosUML/ModeloDeDominioActualizado/DiagramaDeEstadosActualizado.puml)|![](images/DiagramaDeEstadosActualizado.svg)
 
 
