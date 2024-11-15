@@ -1,4 +1,4 @@
-@startuml ModeloDominioOriginal
+@startuml DiagramaDeClasesOriginal
 
     hide circle
     hide empty members
