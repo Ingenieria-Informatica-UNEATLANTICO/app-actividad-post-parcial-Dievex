@@ -1,0 +1,75 @@
+@startuml DiagramaDeObjetosActualizado
+
+    hide circle
+    hide empty members
+    
+    class "servicio_1:Servicio" {
+        nombre = "Línea 1 Metro"
+    }
+    class "ruta_101:Ruta" {
+        nombre = "Alameda-San Bernardo"
+    }
+    class "horario_1:Horario" {
+        inicio = "05:30"
+        fin = "23:30"
+    }
+    class "parada_1:Parada" {
+        nombre = "Estación Central"
+    }
+    class "parada_2:Parada" {
+        nombre = "San Alberto"
+    }
+    class "flota_1:Flota" {
+        nombre = "Flota Metro L1"
+    }
+    class "bus_1:Vehiculo" {
+        matricula = "ABC123"
+        capacidad = 150
+    }
+    class "monitor_1:Sistema_de_Monitoreo" {
+        estado = "Activo"
+    }
+    class "conductor_1:Conductor" {
+        nombre = "Juan Pérez"
+        licencia = "12345"
+    }
+    class "pasajero_1:Pasajero" {
+        nombre = "María García"
+        id = "P789"
+    }
+    class "incidencia_1:Incidencia" {
+        tipo = "Retraso"
+        fecha = "2024-03-15"
+    }
+    class "tarifa_1:Tarifa" {
+        monto = "1.50€"
+    }
+    class "abono_1:Abono" {
+        tipo = "Mensual"
+    }
+
+    "servicio_1:Servicio" --> "ruta_101:Ruta" : ofrece
+    "servicio_1:Servicio" --> "flota_1:Flota" : gestiona
+    "servicio_1:Servicio" --> "monitor_1:Sistema_de_Monitoreo" : controla
+    
+    "ruta_101:Ruta" --> "horario_1:Horario" : opera según
+    "ruta_101:Ruta" *-- "parada_1:Parada" : incluye
+    "ruta_101:Ruta" *-- "parada_2:Parada" : incluye
+    
+    "bus_1:Vehiculo" --* "flota_1:Flota" : pertenece a
+    "bus_1:Vehiculo" --> "incidencia_1:Incidencia" : sufre
+    "bus_1:Vehiculo" --> "monitor_1:Sistema_de_Monitoreo" : es monitoreado por
+    
+    "monitor_1:Sistema_de_Monitoreo" --> "incidencia_1:Incidencia" : registra
+    
+    "conductor_1:Conductor" --> "ruta_101:Ruta" : sigue
+    "conductor_1:Conductor" --> "bus_1:Vehiculo" : conduce
+    
+    "pasajero_1:Pasajero" --> "bus_1:Vehiculo" : utiliza
+    "pasajero_1:Pasajero" --> "tarifa_1:Tarifa" : paga
+    
+    "incidencia_1:Incidencia" ..> "pasajero_1:Pasajero" : afecta
+    
+    "tarifa_1:Tarifa" --> "abono_1:Abono" : se paga con
+
+@enduml

@@ -1,0 +1,38 @@
+@startuml DiagramaDeClasesLegibleSinTicket
+
+hide circle
+hide empty members
+
+package "Sistema de Transporte Público" {
+ 
+    Servicio --> Ruta : "ofrece"
+    Servicio --> Flota : "gestiona"
+    Servicio --> Sistema_de_Monitoreo : "controla"
+    
+    Ruta --> Horario : "opera según"
+    Ruta *-- Parada : "incluye"
+    
+    Vehiculo --* Flota : "pertenece a"
+    Vehiculo --> Incidencia : "sufre"
+    Vehiculo --> Sistema_de_Monitoreo : "es monitoreado por"
+    
+    Sistema_de_Monitoreo --> Incidencia : "registra"
+    
+    Conductor --> Ruta : "sigue"
+    Conductor --> Vehiculo : "conduce"
+    Conductor --|> Persona
+    Conductor --> Incidencia : "reporta"
+
+    Pasajero --> Vehiculo : "utiliza"
+    Pasajero --|> Persona
+    Pasajero --> Tarifa : "paga"
+
+    Incidencia ..> Pasajero : "afecta"
+
+    Tarifa --> Método_de_pago : "se emplean para pagar"
+    Abono --|> Método_de_pago
+
+}
+
+@enduml
+
