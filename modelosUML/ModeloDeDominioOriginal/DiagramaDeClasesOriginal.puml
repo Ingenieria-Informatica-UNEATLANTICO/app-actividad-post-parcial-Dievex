@@ -1,0 +1,28 @@
+@startuml DiagramaDeClasesOriginal
+
+    hide circle
+    hide empty members
+
+    package "Sistema de Transporte Público" {
+
+        Servicio --> Ruta : "ofrece"
+        Servicio -> Flota : "ofrece"
+        Ruta --> Horario : "tiene"
+        Ruta *-- Parada
+        Conductor -> Ruta : "sigue"
+        Conductor --> Vehículo : "conduce"
+        Conductor -|> Persona
+        Conductor --> Incidencia : "reporta"
+        Vehículo --* Flota
+        Vehículo --> Incidencia : "sufre"
+        Incidencia ..> Pasajero : "afecta"
+        Pasajero --> Vehículo : "usa"
+        Pasajero -|> Persona
+        Pasajero --> Tarifa : "paga"
+        Tarifa --> Método_de_pago : "se emplean para pagar"
+        Abono --|> Método_de_pago
+        
+    }
+
+@enduml
+

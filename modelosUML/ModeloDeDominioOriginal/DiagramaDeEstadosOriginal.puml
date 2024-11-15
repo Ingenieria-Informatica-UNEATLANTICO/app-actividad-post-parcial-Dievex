@@ -1,0 +1,13 @@
+@startuml DiagramaDeEstadosOriginal
+
+[*] --> Inactivo
+
+Inactivo --> EnServicio : Inicia el servicio
+EnServicio --> EnRuta : Asigna ruta a conductor
+EnRuta --> Parada : Llega
+Parada --> EnRuta : Si hay otra parada
+Parada --> Inactivo : Si última parada
+EnRuta --> Inactivo : Hay una incidencia
+
+@enduml
+
